@@ -1,0 +1,25 @@
+driver:
+  name: terraform
+
+provisioner:
+  name: terraform
+
+verifier:
+  name: terraform
+
+platforms:
+  - name: ubuntu
+    driver:
+      root_module_directory: examples/root-example
+      variable_files:
+        - examples/root-example/kitchen.tfvars
+  - name: rhel
+    driver:
+      root_module_directory: examples/rhel-production-example
+      variable_files:
+        - examples/rhel-production-example/kitchen.tfvars
+
+suites:
+  - name: default
+    verifier:
+      systems: []

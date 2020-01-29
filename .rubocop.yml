@@ -1,0 +1,39 @@
+require:
+  - rubocop-rspec
+
+AllCops:
+  DisabledByDefault: true
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude: []
+  TargetRubyVersion: 2.6
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Lint/AmbiguousBlockAssociation:
+  Exclude: []
+
+Metrics/BlockLength:
+  Exclude: []
+
+Metrics/ModuleLength:
+  Exclude: []
+
+RSpec/InstanceVariable:
+  Exclude: []
+
+RSpec/NestedGroups:
+  Max: 6
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  MinSize: 4
+
+Style/WordArray:
+  MinSize: 4
