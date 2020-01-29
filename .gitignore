@@ -1,7 +1,11 @@
+.kitchen
 .terraform/
-work
-tmp/
+*.blob
+*.json
+*.rli
+*.tfplan
 *.tfstate
 *.tfstate.*
-terraform.tfvars
-*.rli
+*.tfvars
+tmp/
+work
