@@ -1,5 +1,6 @@
 data "google_dns_managed_zone" "dnszone" {
-  name = var.dnszone
+  name    = var.dnszone
+  project = var.project
 }
 
 resource "google_dns_record_set" "hostname" {
@@ -10,4 +11,5 @@ resource "google_dns_record_set" "hostname" {
   managed_zone = data.google_dns_managed_zone.dnszone.name
 
   rrdatas = [var.address]
+  project = var.project
 }

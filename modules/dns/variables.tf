@@ -23,3 +23,8 @@ variable "address" {
   type        = string
   description = "IP Address to associate with the hostname"
 }
+
+variable "project" {
+  type        = string
+  description = "Name of the project to deploy into"
+}

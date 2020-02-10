@@ -1,5 +1,6 @@
 data "google_compute_zones" "available" {
-  region = var.region
+  region  = var.region
+  project = var.project
 }
 
 locals {
@@ -40,6 +41,7 @@ resource "google_compute_instance" "primary" {
   labels = {
     "name" = var.prefix
   }
+  project = var.project
 }
 
 resource "google_compute_instance_group" "primaries" {
@@ -63,6 +65,7 @@ resource "google_compute_instance_group" "primaries" {
     name = "assist"
     port = 23010
   }
+  project = var.project
 
   depends_on = [google_compute_instance.primary]
 }
@@ -73,6 +76,7 @@ resource "google_compute_network_endpoint_group" "https" {
   network      = var.subnet.network
   default_port = "443"
   zone         = local.zone
+  project      = var.project
 }
 
 resource "google_compute_network_endpoint" "https" {
@@ -83,4 +87,5 @@ resource "google_compute_network_endpoint" "https" {
   port       = 443
   ip_address = google_compute_instance.primary[count.index].network_interface[0].network_ip
   zone       = local.zone
+  project    = var.project
 }
